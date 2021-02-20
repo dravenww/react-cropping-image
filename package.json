@@ -1,6 +1,17 @@
 {
   "name": "react-screenshot",
   "version": "0.1.0",
+  "description": "a component with react for screen shot",
+  "author": "dravenww",
+  "keywords": [
+    "react-screenshot",
+    "component",
+    "screen",
+    "shot",
+    "screenshot",
+    "react",
+    "react-component"
+  ],
   "private": true,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -8,6 +19,11 @@
     "type": "git",
     "url": "git@github.com:dravenww/react-screenshot.git"
   },
+  "homepage": "https://github.com/dravenww/react-screenshot",
+  "bugs": {
+    "url": "https://github.com/dravenww/react-screenshot/issues"
+  },
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
