@@ -1,11 +1,12 @@
 {
   "name": "react-screenshot",
   "version": "0.1.0",
+  "private": true,
   "main": "dist/index.js",
   "module": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "URL_OF_YOUR_REPOSITORY"
+    "url": "git@github.com:dravenww/react-screenshot.git"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
@@ -15,8 +16,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && NODE_ENV=production babel src/lib/index.js --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
-    "test": "react-scripts test",
+    "build": "npm run build:amd && npm run build:es",
+    "build:amd": "rm -rf dist && NODE_ENV=production babel src/lib/ --plugins @babel/plugin-transform-modules-amd --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "build:es": "rm -rf es && NODE_ENV=production babel src/lib/ --out-dir es --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -43,6 +45,8 @@
     "react-scripts": "4.0.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0"
+    "@babel/cli": "^7.12.17",
+    "@babel/plugin-transform-modules-amd": "^7.12.13",
+    "@babel/plugin-transform-modules-umd": "^7.12.13"
   }
 }

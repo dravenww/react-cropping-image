@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import {ScreenShot} from "./lib";
+import ScreenShot from "./lib";
 
 
 const App = () => (
