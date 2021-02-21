@@ -1,5 +1,6 @@
 import {useState, useEffect, useCallback} from "react"
 
+import './index.less'
 /**
  *
  * @param props
@@ -12,7 +13,7 @@ export default function ScreenShot(props) {
     })
     return (
         <div className="screen-shot-container">
-            hello world
+            <img src={props.img}/>
         </div>
     )
 }

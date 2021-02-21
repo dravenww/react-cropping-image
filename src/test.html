@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            height: 500px;
+            width: 800px;
+        }
+        .demo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .element {
+            display: none;
+            height: 100%;
+            background-size: contain;
+            background-image: url(https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c49466c5f6e44835a36eb7fe178aa61e~tplv-k3u1fbpfcp-watermark.image);
+            background-repeat: no-repeat;
+            pointer-events: none;
+            -webkit-mask-image: linear-gradient(45deg, black, black);
+            -webkit-mask-position: 50% 20%;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: 50% 50%;
+        }
+        .target {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            background: red;
+        }
+
+        .shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: .5;
+            background-image: url(https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c49466c5f6e44835a36eb7fe178aa61e~tplv-k3u1fbpfcp-watermark.image);
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<div class="demo">
+    <div class="element" draggable="true"></div>
+    <div class="target" draggable="true"></div>
+    <div class="shadow"></div>
+</div>
+
+</body>
+</html>
