@@ -13,7 +13,8 @@ const App = () => (
         <section className="img-container">
             <ScreenShot
                 img={image}
-            />
+            >
+            </ScreenShot>
         </section>
     </div>
 );
