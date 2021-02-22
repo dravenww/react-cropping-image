@@ -5,11 +5,12 @@ import ScreenShot from "./lib";
 
 import image from './demo.jpeg'
 
+import './index.sass'
 
 const App = () => (
     <div style={{ width: 640, margin: "15px auto" }}>
         <h1>Hello React</h1>
-        <section className="img-container" style={{width: '400px', height: '400px'}}>
+        <section className="img-container">
             <ScreenShot
                 img={image}
             />
