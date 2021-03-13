@@ -23,10 +23,12 @@ const App = () => {
         <button onClick={getImage}>getImage</button>
         <section className="img-container">
             <ScreenShot
-                img={image}
+                image={image}
                 onMoveEnd={onEnd}
+                width={200}
+                height={200}
                 ref={cacheRef}
-            >
+            >1234
             </ScreenShot>
         </section>
         {src && <img src={src}/>}

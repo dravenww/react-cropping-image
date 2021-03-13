@@ -3,16 +3,25 @@ import Draggable from 'react-draggable';
 import './index.sass'
 /**
  *
- * @param props
+ * @param props object
+ * @param props width: 目标宽度，默认200
+ * @param props height: 目标高度，默认200
+ * @param props image: 底图
  * @returns {JSX.Element}
  * @constructor
  */
 const ScreenShot = forwardRef(function (props, ref) {
     const image = useRef(null);
+    const container = useRef(null);
+
+    const [translate, setTranslate] = useState({
+        x: 0,
+        y: 0
+    });
     // target元素的宽高
     const [entity, setEntity] = useState({
-        width: 200,
-        height: 200,
+        width: 0,
+        height: 0,
     });
     // target元素的位置
     const [position, setPosition] = useState({
@@ -25,7 +34,9 @@ const ScreenShot = forwardRef(function (props, ref) {
         canvas.setAttribute("width", entity.width)
         canvas.setAttribute("height", entity.height);
         let ctx = canvas.getContext('2d')
-        ctx.drawImage(image.current, position.left, position.top, entity.width, entity.height,0, 0, entity.width, entity.height)
+        const left = position.left + translate.x;
+        const top = position.top + translate.y;
+        ctx.drawImage(image.current, left, top, entity.width, entity.height,0, 0, entity.width, entity.height)
         return canvas.toDataURL('image/png');
     }
 
@@ -38,42 +49,42 @@ const ScreenShot = forwardRef(function (props, ref) {
     // 初始化时获取图片，设置宽高和位置
     useEffect(() => {
         let img = new Image();
-        img.src = props.img;
+        img.src = props.image;
         img.onload = () => {
+            image.current = img;
+            const cw = container.current.offsetWidth;
+            const ch = container.current.offsetHeight;
+            const width = props.width || 200;
+            const height = props.width || 200;
             setEntity({
-                width: img.width / 2,
-                height: img.height / 2,
+                width: width,
+                height: height,
             })
             setPosition({
-                top: img.height / 4,
-                left: img.width / 4,
-            })
-            image.current = img;
+                top: (ch - height) / 2,
+                left: (cw - width) / 2,
+            });
+
         }
-    }, [props.img])
+    }, [props.image])
 
     // 移动结束的回调
     const onStop = useCallback((event, data) => {
-        const width = entity.width / 2;
-        const height = entity.height / 2;
-        const left = data.lastX + width
-        const top = data.lastY + height
-        setPosition({
-            left: left,
-            top: top
+        setTranslate({
+            x: data.lastX,
+            y: data.lastY
         })
-        setTimeout(() => {
-            props.onMoveEnd && props.onMoveEnd(generateBase());
-        }, 10)
     })
 
     const style = {
         width: entity.width + 'px',
         height: entity.height + 'px',
+        top: position.top + 'px',
+        left: position.left + 'px',
     }
     return (
-        <div className="screen-shot-container">
-            <img src={props.img}/>
+        <div ref={container} className="screen-shot-container">
+            <img src={props.image}/>
             <div className="crop-container">
                 <Draggable bounds="parent" onStop={onStop}>
                     <div className="target" style={style}>
