@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-import ScreenShot from "./lib";
+import CroppingImage from "./lib";
 
 import image from './demo.jpeg'
 
@@ -19,13 +19,12 @@ const App = () => {
       <h1>Hello React</h1>
       <button onClick={getImage}>getImage</button>
       <section className="img-container">
-        <ScreenShot
+        <CroppingImage
           image={image}
           width={200}
           height={200}
           ref={cacheRef}
-        >
-        </ScreenShot>
+        />
       </section>
       {src && <img src={src}/>}
     </div>

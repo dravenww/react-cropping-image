@@ -42,7 +42,7 @@ const Container = styled.div`
  * @returns {JSX.Element}
  * @constructor
  */
-const ScreenShot = forwardRef(function (props, ref) {
+const CroppingImage = forwardRef(function (props, ref) {
     const image = useRef(null);
     const container = useRef(null);
 
@@ -126,4 +126,4 @@ const ScreenShot = forwardRef(function (props, ref) {
     )
 })
 
-export default ScreenShot;
+export default CroppingImage;

@@ -1,20 +1,19 @@
 {
-  "name": "react-screenshot",
-  "version": "0.1.0",
+  "name": "react-cropping-image",
+  "version": "1.0.1",
   "description": "a component with react for screen shot",
   "author": "dravenww",
   "keywords": [
-    "react-screenshot",
+    "react-cropping-image",
     "component",
-    "screen",
-    "shot",
-    "screenshot",
+    "cropping",
+    "image",
+    "cut",
     "react",
     "react-component"
   ],
-  "private": true,
   "main": "dist/index.js",
-  "module": "dist/index.js",
+  "module": "es/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:dravenww/react-screenshot.git"
