@@ -1,4 +1,4 @@
-import {useRef, useState, useEffect, useCallback, forwardRef, useImperativeHandle} from "react"
+import * as React from "react"
 import Draggable from 'react-draggable';
 import styled from 'styled-components';
 
@@ -42,21 +42,21 @@ const Container = styled.div`
  * @returns {JSX.Element}
  * @constructor
  */
-const CroppingImage = forwardRef(function (props, ref) {
-    const image = useRef(null);
-    const container = useRef(null);
+const CroppingImage = React.forwardRef(function (props, ref) {
+    const image = React.useRef(null);
+    const container = React.useRef(null);
 
-    const [translate, setTranslate] = useState({
+    const [translate, setTranslate] = React.useState({
         x: 0,
         y: 0
     });
     // target元素的宽高
-    const [entity, setEntity] = useState({
+    const [entity, setEntity] = React.useState({
         width: 0,
         height: 0,
     });
     // target元素的位置
-    const [position, setPosition] = useState({
+    const [position, setPosition] = React.useState({
         top: 0,
         left: 0
     });
@@ -73,13 +73,13 @@ const CroppingImage = forwardRef(function (props, ref) {
     }
 
     // 向外暴露方法
-    useImperativeHandle(ref, () => ({
+    React.useImperativeHandle(ref, () => ({
         getImage() {
             return generateBase();
         }
     }))
     // 初始化时获取图片，设置宽高和位置
-    useEffect(() => {
+    React.useEffect(() => {
         let img = new Image();
         img.src = props.image;
         img.onload = () => {
@@ -101,7 +101,7 @@ const CroppingImage = forwardRef(function (props, ref) {
     }, [props.image])
 
     // 移动结束的回调
-    const onStop = useCallback((event, data) => {
+    const onStop = React.useCallback((event, data) => {
         setTranslate({
             x: data.lastX,
             y: data.lastY
