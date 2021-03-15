@@ -87,9 +87,7 @@ const ScreenShot = forwardRef(function (props, ref) {
             <img src={props.image}/>
             <div className="crop-container">
                 <Draggable bounds="parent" onStop={onStop}>
-                    <div className="target" style={style}>
-                        {props.children}
-                    </div>
+                    <div className="target" style={style}></div>
                 </Draggable>
             </div>
         </div>
