@@ -1,7 +1,7 @@
 {
   "name": "react-cropping-image",
-  "version": "1.0.2",
-  "description": "a component with react for screen shot",
+  "version": "1.0.3",
+  "description": "a component with react for cropping image",
   "author": "dravenww",
   "keywords": [
     "react-cropping-image",
@@ -16,11 +16,11 @@
   "module": "es/index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:dravenww/react-screenshot.git"
+    "url": "git@github.com:dravenww/react-cropping-image.git"
   },
-  "homepage": "https://github.com/dravenww/react-screenshot",
+  "homepage": "https://github.com/dravenww/react-cropping-image",
   "bugs": {
-    "url": "https://github.com/dravenww/react-screenshot/issues"
+    "url": "https://github.com/dravenww/react-cropping-image/issues"
   },
   "license": "MIT",
   "dependencies": {
