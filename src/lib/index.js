@@ -1,6 +1,38 @@
 import {useRef, useState, useEffect, useCallback, forwardRef, useImperativeHandle} from "react"
 import Draggable from 'react-draggable';
-import './index.sass'
+import styled from 'styled-components';
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  .crop-container {
+    user-select: none;
+    position: absolute;
+    overflow: hidden;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    .control-top {
+      position: absolute;
+      top: -1px;
+      width: 100%;
+      background: red;
+    }
+  }
+  .target {
+    position: absolute;
+    box-shadow: 0 0 0 1000px rgb(0 0 0 / 30%);
+    border: 1px dashed #fff;
+    box-sizing: border-box;
+    cursor: move;
+  }
+`;
 /**
  *
  * @param props object
@@ -83,14 +115,14 @@ const ScreenShot = forwardRef(function (props, ref) {
         left: position.left + 'px',
     }
     return (
-        <div ref={container} className="screen-shot-container">
+        <Container ref={container} className="screen-shot-container">
             <img src={props.image}/>
             <div className="crop-container">
                 <Draggable bounds="parent" onStop={onStop}>
                     <div className="target" style={style}></div>
                 </Draggable>
             </div>
-        </div>
+        </Container>
     )
 })
 
